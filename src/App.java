@@ -20,7 +20,7 @@ import java.io.IOException;
 
 public class App extends Application {
 
-
+    @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Графік Функції");
 
@@ -107,8 +107,8 @@ public class App extends Application {
         for (double x = minX; x <= maxX; x += 0.01) {
             for (double y = minY; y <= maxY; y += 0.01) {
                 double functionValue = Math.pow(c*x, 2) + Math.pow(y, 2) - 4 * c*x * (Math.pow(c*x, 2) - 3 * Math.pow(y, 2)) / (Math.pow(c*x, 2) + Math.pow(y, 2)) + 4 -
-                        Math.pow((Math.pow(c*x, 2) + Math.pow(y, 2) - 3 * c*x * (Math.pow(c*x, 2) - 3 * Math.pow(y, 2)) / (Math.pow(c*x, 2) + Math.pow(y, 2))), 2);
-                if (Math.abs(functionValue) < 0.5) {
+                        Math.pow((Math.pow(c*x, 2) + Math.pow(y, 2) - 3 * c*x * (Math.pow(c*x, 2) - 3 * Math.pow(y, 2)) / (Math.pow(c*x, 2) + Math.pow(y, 2)) + 1), 2);
+                if (Math.abs(functionValue) < 0.2) {
                     XYChart.Data<Number, Number> data = new XYChart.Data<>(x, y);
                     Circle circle = new Circle();
                     circle.setRadius(0.5);
@@ -126,6 +126,7 @@ public class App extends Application {
         launch(args);
     }
 }
+
 
 
 
